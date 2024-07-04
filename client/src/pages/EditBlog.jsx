@@ -14,7 +14,7 @@ const EditBlog = (props) => {
 
     const {id} = useParams();
     const getBlog = async()=>{
-        const res = await fetch(`http://localhost:5001/blogs/${id}`,{
+        const res = await fetch(`https://blogger-backend-9x9o.onrender.com/blogs/${id}`,{
             method:'GET',
             credentials:'include'
         })
@@ -43,7 +43,7 @@ const EditBlog = (props) => {
         data.set('file',file[0]);
         data.set('blogid',blog._id)
         
-        const res = await fetch("http://localhost:5001/blogs/edit",{
+        const res = await fetch("https://blogger-backend-9x9o.onrender.com/blogs/edit",{
             method:"POST",
             body:data,
             credentials:'include'

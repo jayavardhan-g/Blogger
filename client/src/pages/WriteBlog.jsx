@@ -22,7 +22,7 @@ const CreatePost = () => {
         data.set('tags',tags);
         data.set('file',file[0]);
         
-        const res = await fetch("http://localhost:5001/blogs/post",{
+        const res = await fetch("https://blogger-backend-9x9o.onrender.com/blogs/post",{
             method:"POST",
             body:data,
             credentials:'include'

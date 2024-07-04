@@ -7,7 +7,9 @@ const bcrypt = require("bcryptjs");
 const salt = bcrypt.genSaltSync(10);
 
 const findUser = (req,res,next)=>{
+  console.log("Secret key",secretKey);
   var {blogtoken} = req.cookies;
+  console.log("blogtoken",blogtoken);
   jwt.verify(blogtoken,secretKey,{},(error,userInfo)=>{
       if(error)req._id = null;
       else req._id = userInfo._id;

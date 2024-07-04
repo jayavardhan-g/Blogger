@@ -19,7 +19,7 @@ const ViewBlog = () => {
 
 
     const getBlog = async()=>{
-        const res = await fetch(`http://localhost:5001/blogs/${id}`,{
+        const res = await fetch(`https://blogger-backend-9x9o.onrender.com/blogs/${id}`,{
             method:'GET',
             credentials:'include'
         })
@@ -45,7 +45,7 @@ const ViewBlog = () => {
             setAlert("You need to be signed in to save blogs");
             setType("Error");
         }else{
-            const res = await fetch("http://localhost:5001/auth/save",{
+            const res = await fetch("https://blogger-backend-9x9o.onrender.com/auth/save",{
                 method:"POST",
                 body:JSON.stringify({user:userInfo._id, blog:id}),
                 headers:{'Content-Type':'application/json'}
@@ -60,7 +60,7 @@ const ViewBlog = () => {
 
     const unsaveBlog = async ()=>{
 
-        const res = await fetch("http://localhost:5001/auth/unsave",{
+        const res = await fetch("https://blogger-backend-9x9o.onrender.com/auth/unsave",{
             method:"POST",
             body:JSON.stringify({user:userInfo._id, blog:id}),
             headers:{'Content-Type':'application/json'}
@@ -106,7 +106,7 @@ const ViewBlog = () => {
     <div className="max-w-5xl flex-col justify-center">
         <h1 className="text-4xl font-bold text-center" >{blog.title}</h1>
         <div className="text-center flex flex-row" >{blog.tags.map((e,i)=><div className="m-2" key={i}>{e}</div>)}</div>
-        <img src={`http://localhost:5001/${blog.image}`} className="w-full mx-auto rounded-xl" />
+        <img src={`https://blogger-backend-9x9o.onrender.com/${blog.image}`} className="w-full mx-auto rounded-xl" />
         <div className="mt-5" dangerouslySetInnerHTML={{__html:blog.content}} />
         
     </div>

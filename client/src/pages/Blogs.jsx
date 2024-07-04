@@ -7,7 +7,7 @@ const Blogs = () => {
   const { allBlogs, setAllBlogs } = useContext(BlogContext);
   
   const getBlogs = async ()=>{
-    const res = await fetch("http://localhost:5001/blogs/fetch");
+    const res = await fetch("https://blogger-backend-9x9o.onrender.com/blogs/fetch");
     const response = await res.json();
     console.log(response);
     setAllBlogs(response);
@@ -24,7 +24,7 @@ const Blogs = () => {
   { allBlogs.length>0 &&
     allBlogs.map((e,i)=>{
     return(
-      <Card title={e.title} key={i} content={e.content} id={e._id} img = {`http://localhost:5001/${e.image}`} tags={e.tags} author = {e.author.username} date={e.createdAt} />
+      <Card title={e.title} key={i} content={e.content} id={e._id} img = {`https://blogger-backend-9x9o.onrender.com/${e.image}`} tags={e.tags} author = {e.author.username} date={e.createdAt} />
     )
   }
 )}
