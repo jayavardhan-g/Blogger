@@ -2,14 +2,13 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
-const secretKey = process.env.SECRET_KEY;
+const secretKey = "JayaVardhanNani";
 const bcrypt = require("bcryptjs");
 const salt = bcrypt.genSaltSync(10);
 
 const findUser = (req,res,next)=>{
-  console.log("Secret key",secretKey);
-  var {blogtoken} = req.cookies;
-  console.log("blogtoken",blogtoken);
+  var {blogtoken} = req.body;
+  // console.log("blogtoken",blogtoken);
   jwt.verify(blogtoken,secretKey,{},(error,userInfo)=>{
       if(error)req._id = null;
       else req._id = userInfo._id;
@@ -43,23 +42,25 @@ router.post("/login", async (req, res) => {
       res.send({message:"User not found."});
       return;
     }
-
-
+    
     const compare = bcrypt.compareSync(password, userDetails.password);
     if (compare) {
       // console.log(username, userDetails._id);
+      // console.log(userDetails);
       jwt.sign(
         { username, _id: userDetails._id },
         secretKey,
         {},
         (err, token) => {
           if (err) {
-            // console.log(err);
+            console.log(err);
+            res.status(400);
             res.json(err);
-            return
+            return;
           }
-          res.cookie("blogtoken", token);
-          res.json({ username, _id: userDetails._id });
+          // res.cookie("blogtoken", token);
+          console.log(token); 
+          res.json({blogtoken:token,userInfo:{ username, _id: userDetails._id }});
           res.send();
         }
       );
@@ -72,8 +73,8 @@ router.post("/login", async (req, res) => {
   }
 });
 
-router.get("/profile", (req, res) => {
-  var { blogtoken } = req.cookies;
+router.post("/profile", (req, res) => {
+  var { blogtoken } = req.body;
   jwt.verify(blogtoken, secretKey, {}, async (error, userInfo) => {
     if (error) res.json(error);
     else{
@@ -84,9 +85,9 @@ router.get("/profile", (req, res) => {
 });
 
 
-router.get("/logout", (req, res) => {
-  res.cookie("blogtoken", "").json("ok");
-});
+// router.get("/logout", (req, res) => {
+//   res.cookie("blogtoken", "").json("ok");
+// });
 
 router.post("/save",async (req,res)=>{
   const {user,blog} = req.body;
@@ -120,7 +121,7 @@ router.post("/unsave",async (req,res)=>{
   }
 })
 
-router.get('/saved',findUser,async(req,res)=>{
+router.post('/saved',findUser,async(req,res)=>{
   const _id = req._id;
   try{
     const doc = await User.findById(_id,['username','_id','saved']).populate({
@@ -139,7 +140,7 @@ router.get('/saved',findUser,async(req,res)=>{
   }
 })
 
-router.get('/my',findUser, async(req,res)=>{
+router.post('/my',findUser, async(req,res)=>{
   const _id = req._id;
   try{
     const doc = await User.findById(_id,['username','_id','own']).populate('own');

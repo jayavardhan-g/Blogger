@@ -37,14 +37,14 @@ const Navbar = () => {
   const { setAlert, setType } = useContext(AlertContext);
 
   const logout = async () => {
-    var res = await fetch("https://blogger-backend-9x9o.onrender.com/auth/logout", {
-      method: "GET",
-      credentials: "include",
-    });
+    // var res = await fetch("http://localhost:5001/auth/logout", {
+    //   method: "GET",
+    //   credentials: "include",
+    // });
 
     setAlert("You have successfully logged out");
     setType("Success");
-
+    localStorage.removeItem('blogtoken');
     setUserInfo(null);
     setDrop(false);
   };

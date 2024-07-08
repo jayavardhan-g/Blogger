@@ -5,11 +5,12 @@ const upload = multer({ dest: "uploads/" });
 const fs = require("fs");
 const Blog = require("../models/Blog");
 const jwt = require("jsonwebtoken");
-const secretKey = process.env.SECRET_KEY;
+const secretKey = "JayaVardhanNani"
 const User = require("../models/User");
 
 const findUser = (req, res, next) => {
-  var { blogtoken } = req.cookies;
+  // console.log(req.body);
+  var { blogtoken } = req.body;
   jwt.verify(blogtoken, secretKey, {}, (error, userInfo) => {
     if (error) req._id = null;
     else req._id = userInfo._id;
@@ -54,6 +55,7 @@ router.post("/post", middleware, async (req, res) => {
 
 //edit
 router.post("/edit", middleware, async (req, res) => {
+  console.log(req.body);
   if (req._id == null) {
     res.status(400).json("No user found");
   } else {

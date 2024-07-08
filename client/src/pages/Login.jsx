@@ -15,7 +15,7 @@ const Login = () => {
 
     const login = async (e) =>{
         e.preventDefault();
-        const res = await fetch("https://blogger-backend-9x9o.onrender.com/auth/login",{
+        const res = await fetch("http://localhost:5001/auth/login",{
                 method:"POST",
                 body: JSON.stringify({username:username.toLowerCase(),password}),
                 headers:{'Content-Type':'application/json'},
@@ -31,7 +31,8 @@ const Login = () => {
         else {
             setAlert("You successfully logged in. Redirecting to homepage");
             setType("Success");
-            setUserInfo(response)
+            setUserInfo(response.userInfo)
+            localStorage.setItem("blogtoken",response.blogtoken)
             setTimeout(()=>{
                 navigate('/')
             },2500);
