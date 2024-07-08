@@ -5,7 +5,8 @@ const upload = multer({ dest: "uploads/" });
 const fs = require("fs");
 const Blog = require("../models/Blog");
 const jwt = require("jsonwebtoken");
-const secretKey = "JayaVardhanNani"
+// const secretKey = "JayaVardhanNani"
+const secretKey = process.env.SECRET_KEY;
 const User = require("../models/User");
 
 const findUser = (req, res, next) => {

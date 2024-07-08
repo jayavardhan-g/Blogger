@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
-const secretKey = "JayaVardhanNani";
+// const secretKey = "JayaVardhanNani";
+const secretKey = process.env.SECRET_KEY;
 const bcrypt = require("bcryptjs");
 const salt = bcrypt.genSaltSync(10);
 
