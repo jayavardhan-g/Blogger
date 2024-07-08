@@ -19,7 +19,7 @@ const Login = () => {
                 method:"POST",
                 body: JSON.stringify({username:username.toLowerCase(),password}),
                 headers:{'Content-Type':'application/json'},
-                credentials:'include'
+                // credentials:'include'
             }
         )
         const response = await res.json();

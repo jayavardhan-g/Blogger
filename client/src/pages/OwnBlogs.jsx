@@ -21,7 +21,7 @@ const OwnBlogs = () => {
         method:"POST",
         body:JSON.stringify({blogtoken:localStorage.getItem('blogtoken')}),
         headers:{'Content-Type':'application/json'},
-        credentials:'include'
+        // credentials:'include'
       });
       const response = await res.json();
       setUserInfo(response);

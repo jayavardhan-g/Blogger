@@ -21,7 +21,7 @@ const ViewBlog = () => {
     const getBlog = async()=>{
         const res = await fetch(`https://blogger-backend-n0va.onrender.com/blogs/${id}`,{
             method:'GET',
-            credentials:'include'
+            // credentials:'include'
         })
         const response = await res.json();
         // console.log(response);

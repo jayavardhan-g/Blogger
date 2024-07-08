@@ -25,7 +25,7 @@ const CreatePost = () => {
         const res = await fetch("https://blogger-backend-n0va.onrender.com/blogs/post",{
             method:"POST",
             body:data,
-            credentials:'include'
+            https://blogger-backend-n0va.onrender.com/
         })
         const response = await res.json();
         if(res.status==400){
