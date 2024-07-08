@@ -42,7 +42,7 @@ const SavedBlogs = () => {
     { userInfo?.saved!=null &&
       userInfo?.saved?.map((e,i)=>{
       return(
-        <Card title={e.title} key={i} content={e.content} id={e._id} img = {`https://blogger-backend-n0va.onrender.com${e.image}`} tags={e.tags} author={e.author?.username}  />
+        <Card title={e.title} key={i} content={e.content} id={e._id} img = {`https://blogger-backend-n0va.onrender.com/${e.image}`} tags={e.tags} author={e.author?.username}  />
       )
     }
   )}

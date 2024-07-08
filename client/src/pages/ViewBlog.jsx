@@ -106,7 +106,7 @@ const ViewBlog = () => {
     <div className="max-w-5xl flex-col justify-center">
         <h1 className="text-4xl font-bold text-center" >{blog.title}</h1>
         <div className="text-center flex flex-row" >{blog.tags.map((e,i)=><div className="m-2" key={i}>{e}</div>)}</div>
-        <img src={`https://blogger-backend-n0va.onrender.com${blog.image}`} className="w-full mx-auto rounded-xl" />
+        <img src={`https://blogger-backend-n0va.onrender.com/${blog.image}`} className="w-full mx-auto rounded-xl" />
         <div className="mt-5" dangerouslySetInnerHTML={{__html:blog.content}} />
         
     </div>
