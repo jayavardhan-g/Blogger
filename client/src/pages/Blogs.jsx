@@ -21,13 +21,25 @@ const Blogs = () => {
   return (
 <>
 <div className=" flex flex-row flex-wrap justify-center items-center">
-  { allBlogs.length>0 &&
+  {
+    allBlogs==null && 
+    <div className="w-full h-screen justify-center items-center">
+      <Loader />
+    </div>
+  }
+  { allBlogs?.length>0 &&
     allBlogs.map((e,i)=>{
     return(
       <Card title={e.title} key={i} content={e.content} id={e._id} img = {`https://blogger-backend-n0va.onrender.com/${e.image}`} tags={e.tags} author = {e.author.username} date={e.createdAt} />
     )
   }
-)}
+  )}
+  {
+    allBlogs!=null && allBlogs?.length==0 &&
+    <div className="w-full h-screen flex justify-center items-center" >
+    There are no blogs to read at present.
+    </div>
+  }
 </div>
 </>
   )

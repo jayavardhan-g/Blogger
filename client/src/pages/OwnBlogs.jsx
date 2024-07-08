@@ -3,6 +3,7 @@ import { UserContext } from "../context/UserContext";
 import { AlertContext } from "../context/AlertContext";
 import Card from "../components/Card";
 import { useNavigate } from "react-router-dom";
+import Loader from "../components/Loader";
 
 const OwnBlogs = () => {
     const {setUserInfo, userInfo} = useContext(UserContext)
@@ -45,6 +46,11 @@ const OwnBlogs = () => {
       )
     }
   )}
+
+  {
+    userInfo?.own==null && <div className="w-full h-screen"><Loader/></div>
+  }
+
   </div>
   </>
   )
