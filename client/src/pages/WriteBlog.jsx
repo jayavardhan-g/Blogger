@@ -21,6 +21,7 @@ const CreatePost = () => {
         data.set('content',content);
         data.set('tags',tags);
         data.set('file',file[0]);
+        data.set('blogtoken',localStorage.getItem('blogtoken'));
         
         const res = await fetch("https://blogger-backend-n0va.onrender.com/blogs/post",{
             method:"POST",
