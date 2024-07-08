@@ -7,7 +7,7 @@ const Blogs = () => {
   const { allBlogs, setAllBlogs } = useContext(BlogContext);
   
   const getBlogs = async ()=>{
-    const res = await fetch("https://blogger-backend-n0va.onrender.comblogs/fetch");
+    const res = await fetch("https://blogger-backend-n0va.onrender.com/blogs/fetch");
     const response = await res.json();
     console.log(response);
     setAllBlogs(response);

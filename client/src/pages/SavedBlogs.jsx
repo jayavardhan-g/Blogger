@@ -17,7 +17,7 @@ const SavedBlogs = () => {
       })
     }
     const getSavedBlogs = async ()=>{
-      const res = await fetch("https://blogger-backend-n0va.onrender.comauth/saved",{
+      const res = await fetch("https://blogger-backend-n0va.onrender.com/auth/saved",{
         method:"POST",
         body:JSON.stringify({blogtoken:localStorage.getItem('blogtoken')}),
         headers:{'Content-Type':'application/json'},

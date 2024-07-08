@@ -19,7 +19,7 @@ const ViewBlog = () => {
 
 
     const getBlog = async()=>{
-        const res = await fetch(`https://blogger-backend-n0va.onrender.comblogs/${id}`,{
+        const res = await fetch(`https://blogger-backend-n0va.onrender.com/blogs/${id}`,{
             method:'GET',
             credentials:'include'
         })
@@ -45,7 +45,7 @@ const ViewBlog = () => {
             setAlert("You need to be signed in to save blogs");
             setType("Error");
         }else{
-            const res = await fetch("https://blogger-backend-n0va.onrender.comauth/save",{
+            const res = await fetch("https://blogger-backend-n0va.onrender.com/auth/save",{
                 method:"POST",
                 body:JSON.stringify({user:userInfo._id, blog:id}),
                 headers:{'Content-Type':'application/json'}
@@ -60,7 +60,7 @@ const ViewBlog = () => {
 
     const unsaveBlog = async ()=>{
 
-        const res = await fetch("https://blogger-backend-n0va.onrender.comauth/unsave",{
+        const res = await fetch("https://blogger-backend-n0va.onrender.com/auth/unsave",{
             method:"POST",
             body:JSON.stringify({user:userInfo._id, blog:id}),
             headers:{'Content-Type':'application/json'}

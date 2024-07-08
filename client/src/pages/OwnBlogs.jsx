@@ -17,7 +17,7 @@ const OwnBlogs = () => {
       })
     }
     const getOwnBlogs = async ()=>{
-      const res = await fetch("https://blogger-backend-n0va.onrender.comauth/my",{
+      const res = await fetch("https://blogger-backend-n0va.onrender.com/auth/my",{
         method:"POST",
         body:JSON.stringify({blogtoken:localStorage.getItem('blogtoken')}),
         headers:{'Content-Type':'application/json'},

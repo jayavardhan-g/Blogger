@@ -15,7 +15,7 @@ const Login = () => {
 
     const login = async (e) =>{
         e.preventDefault();
-        const res = await fetch("https://blogger-backend-n0va.onrender.comauth/login",{
+        const res = await fetch("https://blogger-backend-n0va.onrender.com/auth/login",{
                 method:"POST",
                 body: JSON.stringify({username:username.toLowerCase(),password}),
                 headers:{'Content-Type':'application/json'},
