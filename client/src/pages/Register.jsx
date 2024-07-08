@@ -28,7 +28,7 @@ const Register = () => {
             return;
         }
         
-        const res = await fetch("http://localhost:5001/auth/register",{
+        const res = await fetch("https://blogger-backend-n0va.onrender.comauth/register",{
             method:"POST",
             body:JSON.stringify({username:username.toLowerCase(),email,password}),
             headers:{"Content-Type":"application/json"}

@@ -37,7 +37,7 @@ const Navbar = () => {
   const { setAlert, setType } = useContext(AlertContext);
 
   const logout = async () => {
-    // var res = await fetch("http://localhost:5001/auth/logout", {
+    // var res = await fetch("https://blogger-backend-n0va.onrender.comauth/logout", {
     //   method: "GET",
     //   credentials: "include",
     // });

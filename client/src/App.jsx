@@ -8,7 +8,7 @@ import Alert from "./components/Alert";
 function App() {
   const {userInfo,setUserInfo} = useContext(UserContext)
   const check = async ()=>{
-    const res = await fetch("http://localhost:5001/auth/profile",{
+    const res = await fetch("https://blogger-backend-n0va.onrender.comauth/profile",{
       method:'POST',
       body: JSON.stringify({blogtoken:localStorage.getItem("blogtoken")}),
       headers:{'Content-Type':'application/json'},

@@ -15,7 +15,7 @@ const Login = () => {
 
     const login = async (e) =>{
         e.preventDefault();
-        const res = await fetch("http://localhost:5001/auth/login",{
+        const res = await fetch("https://blogger-backend-n0va.onrender.comauth/login",{
                 method:"POST",
                 body: JSON.stringify({username:username.toLowerCase(),password}),
                 headers:{'Content-Type':'application/json'},
