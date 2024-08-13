@@ -2,7 +2,7 @@ const cron = require('cron')
 const https = require('https')
 
 const backendurl= 'https://blogger-backend-n0va.onrender.com/restart'
-const job = new cron.CronJob('* * * * *', ()=>{
+const job = new cron.CronJob('*/14 * * * *', ()=>{
     console.log("Restarting server");
 
     https.
