@@ -13,9 +13,13 @@ app.use('/uploads',express.static(__dirname+'/uploads'));
 // mongoose.connect("mongodb://localhost:27017/blogs")
 mongoose.connect("mongodb+srv://blog:ICVrIffVE2A5u1Ol@cluster0.mrwain4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
-app.get('/test', (req,res)=>{
-    res.json('Test ok');
+app.get('/restart', (req,res)=>{
+    res.json("Restarted");
 })
+
+const job = require('./cron').job;
+
+job.start();
 
 var port = process.env.PORT || 5001;
 

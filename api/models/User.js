@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const {Schema, model} = mongoose
 
 
-
 const UserSchema = new Schema({
     username:{type:String, unique:true, minlength:4,maxlength:15, required:true },
     email:{type:String, unique:true,required:true},
