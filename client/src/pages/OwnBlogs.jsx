@@ -36,7 +36,7 @@ const OwnBlogs = () => {
     return (
   <>
   {
-    userInfo?.own?.length==0 &&<div className="flex justify-center items-center w-full h-screen">You didn't save any blogs</div> 
+    userInfo?.own?.length==0 &&<div className="flex justify-center items-center w-full h-screen">You didn't write any blogs</div> 
   }
   <div className="flex flex-row flex-wrap justify-center items-center">
     { userInfo?.own!=null &&
