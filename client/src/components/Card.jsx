@@ -47,7 +47,7 @@ const Card = (props) => {
         </div>
         <div className="flex p-2  w-full justify-between">
           <div className="text-xs mx-2 text-center">
-            {props.date.slice(0,10)}
+            {props.date}
           </div>
           <div className="mx-1 text-center">
             {props.author?`~ ${props.author}`:""}
